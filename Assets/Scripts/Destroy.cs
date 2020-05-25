@@ -6,30 +6,12 @@ public class Destroy : MonoBehaviour
 {
     public GameObject playerDebrisPrefab;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Enemy")
         {
-            Debug.Log(other.gameObject.tag.ToString());
             CreateExplosion(this.gameObject.transform.position);
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
         }
     }
 
